@@ -1,2 +1,1 @@
-# daniel-alejandro-toledo-tp2
- 
+Versión inicial del proyecto con las carpetas vacías.
