@@ -8,9 +8,58 @@
 	<link rel="stylesheet" type="text/css" href="../css/estilos.css">
 </head>
 <body>
-	<div id="contenedor">
+	<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+	 <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Luz
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Oscuro
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+	<div id="contenedor" class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
 		<header>
-			<nav class="navbar navbar-expand-lg bg-body-tertiary, navbar fixed-top bg-body-tertiary" data-bs-theme="dark">
+			<nav class="navbar navbar-expand-lg bg-body-tertiary, navbar fixed-top bg-body-tertiary, shadow-lg p-3 mb-5 bg-body-tertiary">
   				<div class="container-fluid">
   					<img src="../img/logo-actual.jpg" alt="Logo de la banda" width="30" height="30" class="d-inline-block align-text-top">
   					<img src="../img/bandera.png" alt="Bandera argentina" width="40" height="30" class="d-inline-block align-text-top">
@@ -55,31 +104,192 @@
 				<p>Después de la graduación de la escuela secundaria, empezaron a tomar sus intereses musicales más en serio, con el reclutamiento de Joe Hahn, Dave "Phoenix" Farrell, y Mark Wakefield nombrandola como "Xero".</p>
 				<p>Aunque limitados en recursos, la banda comenzó a grabar y producir canciones de estudio con Shinoda en una recámara productora en 1996. Después de no conseguir un contrato discográfico, la tensión y la frustración creció y la falta de éxito y el estancamiento en el progreso devinieron en el retiro de Wakefield que en ese momento era el vocalista, dejando la banda en busca de otros proyectos</p>
 				<p>No fue hasta 1999, que con el apoyo de Jeff Blue, quien ejercía como vicepresidente de Warner Records, lograron firmar su primer contrato. El nombre actual proviene de un juego de palabras que hace referencia al Lincoln Park en Santa Mónica.</p> 
-				<h4>Sitio web oficial</h4>
-				<p class="embebidos"><iframe src="https://www.linkinpark.com/"></iframe></p>
+				<p>Music for Relief, en español: "Música para el Alivo", es una iniciativa fundada por Linkin park dedicada a la ayuda y recuperación en caso de catástrofe y es un programa de la Entertainment Industry Foundation, en español: "La Fundación de la Industria del Entretenimiento.</p>
+				<p>Al igual que Music for Relief, la red social de snapchat no figura en el linktree ni en la web pero están verficados y a su vez también en myspace para los mas nostálgicos. Por otro lado en Soundcloud están verificados pero la mayoría de las canciones no están disponibles para Argentina.</p>
+				<div class="d-grid gap-2 d-md-flex justify-content-center">
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link" href="https://linktr.ee/linkinpark" target="_blank">Linkin Park
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+  				<path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+  				<path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link" href="https://www.snapchat.com/add/linkinparklive?sender_web_id=ccd776b7-c8fa-49d5-bd43-d514b607cd80&device_type=desktop&is_copy_url=true" target="_blank">Snapchat
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-snapchat" viewBox="0 0 16 16">
+  				<path d="M15.943 11.526c-.111-.303-.323-.465-.564-.599a1 1 0 0 0-.123-.064l-.219-.111c-.752-.399-1.339-.902-1.746-1.498a3.4 3.4 0 0 1-.3-.531c-.034-.1-.032-.156-.008-.207a.3.3 0 0 1 .097-.1c.129-.086.262-.173.352-.231.162-.104.289-.187.371-.245.309-.216.525-.446.66-.702a1.4 1.4 0 0 0 .069-1.16c-.205-.538-.713-.872-1.329-.872a1.8 1.8 0 0 0-.487.065c.006-.368-.002-.757-.035-1.139-.116-1.344-.587-2.048-1.077-2.61a4.3 4.3 0 0 0-1.095-.881C9.764.216 8.92 0 7.999 0s-1.76.216-2.505.641c-.412.232-.782.53-1.097.883-.49.562-.96 1.267-1.077 2.61-.033.382-.04.772-.036 1.138a1.8 1.8 0 0 0-.487-.065c-.615 0-1.124.335-1.328.873a1.4 1.4 0 0 0 .067 1.161c.136.256.352.486.66.701.082.058.21.14.371.246l.339.221a.4.4 0 0 1 .109.11c.026.053.027.11-.012.217a3.4 3.4 0 0 1-.295.52c-.398.583-.968 1.077-1.696 1.472-.385.204-.786.34-.955.8-.128.348-.044.743.28 1.075q.18.189.409.31a4.4 4.4 0 0 0 1 .4.7.7 0 0 1 .202.09c.118.104.102.26.259.488q.12.178.296.3c.33.229.701.243 1.095.258.355.014.758.03 1.217.18.19.064.389.186.618.328.55.338 1.305.802 2.566.802 1.262 0 2.02-.466 2.576-.806.227-.14.424-.26.609-.321.46-.152.863-.168 1.218-.181.393-.015.764-.03 1.095-.258a1.14 1.14 0 0 0 .336-.368c.114-.192.11-.327.217-.42a.6.6 0 0 1 .19-.087 4.5 4.5 0 0 0 1.014-.404c.16-.087.306-.2.429-.336l.004-.005c.304-.325.38-.709.256-1.047m-1.121.602c-.684.378-1.139.337-1.493.565-.3.193-.122.61-.34.76-.269.186-1.061-.012-2.085.326-.845.279-1.384 1.082-2.903 1.082s-2.045-.801-2.904-1.084c-1.022-.338-1.816-.14-2.084-.325-.218-.15-.041-.568-.341-.761-.354-.228-.809-.187-1.492-.563-.436-.24-.189-.39-.044-.46 2.478-1.199 2.873-3.05 2.89-3.188.022-.166.045-.297-.138-.466-.177-.164-.962-.65-1.18-.802-.36-.252-.52-.503-.402-.812.082-.214.281-.295.49-.295a1 1 0 0 1 .197.022c.396.086.78.285 1.002.338q.04.01.082.011c.118 0 .16-.06.152-.195-.026-.433-.087-1.277-.019-2.066.094-1.084.444-1.622.859-2.097.2-.229 1.137-1.22 2.93-1.22 1.792 0 2.732.987 2.931 1.215.416.475.766 1.013.859 2.098.068.788.009 1.632-.019 2.065-.01.142.034.195.152.195a.4.4 0 0 0 .082-.01c.222-.054.607-.253 1.002-.338a1 1 0 0 1 .197-.023c.21 0 .409.082.49.295.117.309-.04.56-.401.812-.218.152-1.003.638-1.18.802-.184.169-.16.3-.139.466.018.14.413 1.991 2.89 3.189.147.073.394.222-.041.464"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link" href="https://myspace.com/linkinpark" target="_blank">Myspace
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+  				<path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+  				<path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link" href="https://soundcloud.com/linkinpark" target="_blank">Soundcloud
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+  				<path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+  				<path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://www.instagram.com/musicforrelief/?hl=es" target="_blank">Music for Relief 
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+  				<path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+				</svg>
+				</a>
+  				</button>
+				</div>
 				<h2>Integrantes actuales</h2>
 				<h3>Emily Amstrong</h3>
-				<p class="banda-img"><img src="img/emily-amstrong.jpg" alt="Imágen de Emily Amstrong año 2024"></p>
+				<p class="banda-img"><img src="img/emily-amstrong.jpg" alt="Imágen de Emily Amstrong año 2024" class="img-redondo"></p>
 				<p>Emily Marcia Armstrong (Los Ángeles, 6 de mayo de 1986) es una cantante, música y compositora estadounidense, conocida por ser la vocalista principal de la banda Linkin Park desde 2024. También es cofundadora e integrante de la banda "Dead Sara".</p>
 				<p>Armstrong nació y creció en Los Ángeles, California. Sus padres eran miembros destacados de la Iglesia de la Cienciología y ella fue criada como ciencióloga. Comenzó a componer canciones con la guitarra cuando tenía 11 años, y a cantar cuando tenía 15. Abandonó la escuela secundaria, sabiendo que quería estar en una banda de rock tan pronto como tomó la guitarra por primera vez, sin interés en dedicarse a otra cosa. En una entrevista con El Paso Times en 2012, Armstrong dijo que la música era lo único que la mantenía motivada en la vida.</p>
+				<p>Dead Sara también esta verificada en myspace para los mas nostálgicos aunque no este presente en su web ni en su YouTube.</p>
+				<div class="d-grid gap-2 d-md-flex justify-content-center">
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://www.instagram.com/emilyarmstrong?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Emily Amstrong 
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+  				<path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://www.youtube.com/deadsaratheband" target="_blank">Dead Sara 
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+  				<path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link" href="https://myspace.com/deadsara" target="_blank">Myspace
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+  				<path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+  				<path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+				</svg>
+				</a>
+  				</button>
+				</div>	
 				<h3>Mike Shinoda</h3>
 				<p class="banda-img"><img src="img/mike-shinoda.jpg" alt="Imágen de Mike Shinoda año 2024"></p>
 				<p>Michael Kenji «Mike» Shinoda ( /ʃᵻˈnoʊdə/; en japonés: 篠田 賢治, romanizado: Shinoda Kenji) (Los Ángeles, 11 de febrero de 1977) es un músico, cantante, rapero, compositor, productor discográfico y multinstrumentista estadounidense. Cofundó Linkin Park en 1996 y es el rapero principal de la banda, además de guitarrista rítmico, teclista, compositor principal y productor. Más tarde, Shinoda creó un proyecto paralelo impulsado por el hip hop, Fort Minor, en 2004. También se desempeñó como productor de pistas y álbumes de Lupe Fiasco, Styles of Beyond y X-Ecutioners.</p>
 				<p>Shinoda también es cofundador de Machine Shop Records, un sello discográfico con sede en California. Fuera de la música, Shinoda es artista y diseñador gráfico. Ha pintado varias obras de arte, algunas de las cuales se han presentado en el Museo Nacional Japonés Americano. En 2018, Shinoda lanzó Post Traumatic, que contenía 18 canciones sobre sus sentimientos tras la muerte de su colega y viejo amigo Chester Bennington</p>
+				<p>En el caso de Fort Minor, practicamente ninguna canción esta disponible en Argentina.</p>
+				<div class="d-grid gap-2 d-md-flex justify-content-center">
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://linktr.ee/mikeshinoda" target="_blank">Mike Shinoda
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+  				<path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+  				<path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://www.instagram.com/fortminor/" target="_blank">Fort Minor
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+  				<path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://www.youtube.com/c/fortminor" target="_blank">Fort Minor
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+ 				<path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://open.spotify.com/intl-es/artist/7dWYWUbO68rXJOcyA7SpJk?si=caY3NVb-RTWwEgTJufgj6g" target="_blank">Fort Minor
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-spotify" viewBox="0 0 16 16">
+  				<path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link" href="https://soundcloud.com/fort-minor-official" target="_blank">Soundcloud
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+  				<path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+  				<path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link" href="https://machineshop.co/" target="_blank">Machine Shop Records
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+  				<path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+  				<path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+				</svg>
+				</a>
+  				</button>
+				</div>
 				<h3>Dave Farrell</h3>
 				<p class="banda-img"><img src="img/dave-farrell.jpg" alt="Imágen de Dave Farrell año 2024"></p>
 				<p>David Michael Farrell (Plymouth, Massachusetts, 8 de febrero de 1977), más conocido como Phoenix, es el bajista del grupo de rock alternativo estadounidense Linkin Park. Actualmente forma parte del podcast de golf "Member Guest".</p>
 				<p>Farrell nació en Plymouth, Massachusetts pero más tarde se mudó a Mission Viejo, California cuando tenía cinco años. Se graduó en la Universidad de California. Toca el bajo, la guitarra eléctrica, el chelo y el violín.</p>
 				<p>Farrell ha declarado que sus influencias han sido su madre y su hermano Joe, al igual Weezer, The Beatles, Deftones, Pink floyd, Guns N Roses, The Smiths, Hughes y Wagner. Está casado desde diciembre de 2002 con Linsey Farrell y tienen cuatro hijos.</p>
+				<div class="d-grid gap-2 d-md-flex justify-content-center">
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://www.instagram.com/phoenixlp/" target="_blank">Dave Farrell
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+  				<path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://x.com/phoenixlp" target="_blank">Dave Farrell
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+ 				<path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+				</svg>
+				</a>
+  				</button>
+				</div>
 				<h3>Joe Hahn</h3>
 				<p class="banda-img"><img src="img/joe-hahn.jpg" alt="Imágen de Joe Hahn año 2024"></p>
 				<p>Joseph Hahn, conocido también como Joe Hahn, Chairman Hahn o Mr. Hahn (Dallas, Texas, 15 de marzo de 1977) es un director de videos musicales surcoreano-estadounidense, también conocido como el DJ en Linkin Park. Joe tiene un ''alter ego'' llamado Remy.</p>
 				<p>Creció en Glendale, California. Hahn es coreano-estadounidense de segunda generación.</p>
 				<p>Hahn se graduó de la Herbert Hoover High School en Glendale en 1995. Luego estudió en el Art Center College of Design de Pasadena, pero no se graduó. Hahn se unió a Linkin Park, llamada en ese entonces Xero, en 1997 como el DJ de la banda. Desde entonces, él ha dirigido la mayoría de los videos de la banda (excepto "One Step Closer","Crawling","Faint","Given Up" y "We Made It"). Hahn, junto con su compañero de banda Mike Shinoda, es responsable de la mayor parte de las ilustraciones de los álbumes de Linkin Park. Además, participó con Mike Shinoda en su producción The Rising Tied, del proyecto alterno de Hip Hop Fort Minor. A Joe se le ocurrió el concepto de One Step Closer y ha estado involucrado en todos los demás videos. Él es el director oficial de los videos para la banda.</p>
 				<p>Hahn se convirtió en el primer coreano estadounidense en recibir un Grammy cuando la banda ganó el premio 2002 de Mejor Interpretación de Hard Rock</p>
+				<div class="d-grid gap-2 d-md-flex justify-content-center">
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://www.instagram.com/mrjoehahn/" target="_blank">Joe Hahn
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+  				<path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://x.com/joehahnLP" target="_blank">Joe Hahn
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+ 				<path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://www.facebook.com/JoeHahnLP/" target="_blank">Joe Hahn 
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+  				<path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+				</svg>
+				</a>
+  				</button>
+				</div>
 				<h3>Colin Brittain</h3>
 				<p class="banda-img"><img src="img/colin-brittain.jpg" alt="Imágen de Colin Brittain año 2024"></p>
-				<p>Colin Brittain (nacido Colin Cunningham; Knoxville, 29 de diciembre de 1986) es un compositor, productor y músico estadounidense. Es el baterista de la banda Linkin Park desde 2024. Ha escrito y producido para artistas como Papa Roach, Hands Like Houses, Basement, Dashboard Confessional, 5 Seconds of Summer, Miyavi y One Ok Rock.</p>
+				<p>Colin Brittain (nacido Colin Cunningham; Knoxville, 29 de diciembre de 1986) apodado Doc es un compositor, productor y músico estadounidense. Es el baterista de la banda Linkin Park desde 2024. Ha escrito y producido para artistas como Papa Roach, Hands Like Houses, Basement, Dashboard Confessional, 5 Seconds of Summer, Miyavi y One Ok Rock.</p>
+				<div class="d-grid gap-2 d-md-flex justify-content-center">
+				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://www.threads.net/@colinbrittain" target="_blank">Colin Brinttain
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-threads" viewBox="0 0 16 16">
+  				<path d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 13.987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161"/>
+				</svg>
+				</a>
+  				</button>
+				</div>
 				<h3>Alex Feder</h3>
 				<p class="banda-img"><img src="img/alex-feder.jpg" alt="Imágen de Alex Feder año 2024"></p>
 				<p>Leonard Friend y Still a Great Night son los seudónimos musicales del músico, compositor y productor Alex Feder.</p>
@@ -88,37 +298,152 @@
 				<p>En 2013 lanzó una remezcla de "Suit & Tie" de Justin Timberlake.</p>
 				<p>Ha colaborado con otros artistas en proyectos y giras como Enrique Iglesias y Lp.</p>
 				<p>En 2024, Feder se convirtió en el guitarrista principal de gira de un Linkin Park reformado, sustituyendo al miembro fundador Brad Delson, que decidió abandonar las giras. Actuó por primera vez con Linkin Park el 5 de septiembre, y está previsto que aparezca en todos los conciertos de su gira mundial From Zero (2024-2025)</p>
+				<div class="d-grid gap-2 d-md-flex justify-content-center">
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://www.instagram.com/stillagreatnight/" target="_blank">Alex Feder
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+  				<path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://www.threads.net/@stillagreatnight" target="_blank">Alex Feder
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-threads" viewBox="0 0 16 16">
+  				<path d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 13.987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://open.spotify.com/intl-es/artist/7yQnz3H8V4v4W0QpFIRrCe" target="_blank">Alex Feder 
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-spotify" viewBox="0 0 16 16">
+  				<path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link" href="https://www.thexyzaffair.com/" target="_blank">The XYZ Affair
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+  				<path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+  				<path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+				</svg>
+				</a>
+  				</button>
+				</div>
 				<h3>Brad Delson</h3>
 				<p class="banda-img"><img src="img/brad-delson.png" alt="Imágen de Brad Delson año 2024"></p>
 				<p>Bradford Phillip Delson (Agoura, 1 de diciembre de 1977) es músico estadounidense, conocido por ser el guitarrista líder de la banda Linkin Park. También es el A&R de Machine Shop Recordings.</p>
 				<p>Brad Delson asistió a la Escuela Superior de Agoura con su amigo de la infancia y compañero de banda Linkin Park, Mike Shinoda. Tocó en varias bandas a lo largo de su carrera en la preparatoria, el más notable grado de ser relativa, en la que conoció y se asoció con el baterista Rob Bourdon. Relative Degree fue simplemente un concierto y, después de alcanzar ese objetivo, se disolvió. Después de graduarse en 1995, Delson, Shinoda, y Bourdon formaron Xero, que finalmente se convertiría en el punto de partida para Linkin Park. Delson entró en UCLA en 1995 como becario Regent trabajando hacia un título de Licenciada en Ciencias de la Comunicación, con especialización en Negocios y Administración. Fue miembro de Phi Beta Kappa, y compartió un dormitorio con el futuro compañero de banda Linkin Park, Dave Farrell en tres de sus cuatro años en la escuela, Farrell le mostró como tocar el bajo, y así también aprendió como tocar el bajo. Delson también tuvo la oportunidad de hacer una pasantía con un miembro de la industria de la música como parte de sus estudios y terminó trabajando para Jeff Blue, un representante de A & R de Warner Bros. Records, que ofrece una crítica constructiva en los demos de Xero. Blue más tarde introdujo Chester Bennington, que se convertiría en el vocalista de Linkin Park, con el resto de la banda. Después de graduarse en 1999, Delson decidió renunciar a la facultad de derecho con el fin de seguir una carrera musical con Linkin Park. Él sigue siendo un gran fan de todas las cosas azul y oro. Brad es de ascendencia judía.</p>
 				<p>Sin embargo no formara parte de la banda durante las giras y conciertos en vivo, en su lugar participará en el estudio durante sesiones de producción y grabación. Tal y como explica en un comunicado oficial tanto la banda como el guitarrista, se trata de una decisión personal de cara exclusviamente a los espectáculos. "A lo largo de los años me he dado cuenta de que prospero más cuando trabajo activamente con mis compañeros de banda detrás de las escenas -- en el estudio, colaborando en nuestra nueva música, y ayudando a construir nuestro show en vivo", ha explicado el artista, indicando que su trabajo ahora se centrará más en procesos creativos que en la performance en sí misma.</p>
+				<div class="d-grid gap-2 d-md-flex justify-content-center">
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://www.instagram.com/braddelson/?hl=es" target="_blank">Brad Delson 
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+  				<path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+				</svg>
+				</a>
+  				</button>
+				</div>	
 				<h2>Integrantes anteriores</h2>
 				<h3>Rob Bourdon</h3>
 				<p class="banda-img"><img src="img/rob-bourdon.jpg" alt="Imágen de Rob Bourdon año 2024"></p>
 				<p>Robert Gregory "Rob" Bourdon (Calabasas, California; 20 de enero de 1979) es un músico estadounidense, conocido por haber sido el baterista de la banda Linkin Park.</p>
 				<p>Robert Gregory Bourdon nació el 20 de enero de 1979. Rob nació en Calabasas, California y ahora vive en Los Ángeles. Sus padres son Gregory y Patty; tiene un hermano menor llamado Dave. Creció en la misma ciudad que los miembros de Incubus y fue a la escuela con los miembros de Hoobastank.</p>
 				<p>Rob comenzó a tocar la batería a la edad de 10 años tras ver un concierto de Aerosmith. Ya que su madre, Patty, fue la exnovia de Joey Kramer, el baterista de Aerosmith, Bourdon pudo estar en el backstage y ver toda la producción. Kramer también dio a Rob un pedal de bombo. A Rob también le gusta tocar piano cuando tiene tiempo. Rob acostumbraba a tomar lecciones cuando era joven y forzado a seguir.</p>
+				<p>Al igual que Mark mantiene un bajo perfil y no posee redes sociales verificadas aunque la imágen es actual dado que formo parte de Linkin Park hasta el año 2024.</p>
+				<p>Cofundó un sello discográfico junto a Mike Shinoda en 2001, Machine Shop Recordings.</p>
+				<div class="d-grid gap-2 d-md-flex justify-content-center">
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link" href="https://machineshop.co/" target="_blank">Machine Shop Records
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+  				<path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+  				<path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+				</svg>
+				</a>
+  				</button>
+  				</div>
 				<h3>Chester Bennington</h3>
 				<p class="banda-img"><img src="img/chester-bennington.jpg" alt="Imágen de Chester Bennington año 2017"></p>
 				<p>Chester Charles Bennington (Phoenix, 20 de marzo de 1976-Palos Verdes, 20 de julio de 2017) fue un músico estadounidense, conocido por ser el vocalista principal y compositor de la banda Linkin Park. También fue el vocalista principal de las bandas Grey Daze, Dead by Sunrise y Stone Temple Pilots.</p>
 				<p>Bennington ganó prominencia por primera vez como vocalista tras el lanzamiento del álbum debut de Linkin Park, Hybrid Theory (2000), que fue un éxito comercial mundial. El álbum fue certificado Diamante por la Recording Industry Association of America, en español: "La Asociación de la Industria Discográfica de América", en 2005, lo que lo convierte en el álbum debut más vendido de la década, así como uno de los pocos álbumes en lograr tantas ventas. Los siguientes álbumes de estudio de Linkin Park, desde Meteora (2003) hasta One More Light (2017), continuaron con el éxito de la banda.</p>
 				<p>Bennington formó su propia banda, Dead by Sunrise, como un proyecto paralelo en 2005. El álbum debut de la banda, Out of Ashes, fue lanzado el 13 de octubre de 2009. Se convirtió en el cantante principal de Stone Temple Pilots en 2013 para lanzar la obra extendida High Rise el 8 de octubre de 2013, a través de su propio sello discográfico, Play Pen, pero se fue en 2015 para centrarse únicamente en Linkin Park. Como actor, apareció en películas como Crank (2006), Crank: High Voltage (2009) y Saw 3D (2010).</p>
-				<p>Bennington luchó contra la depresión y el abuso de sustancias durante la mayor parte de su vida, desde su niñez. El 20 de julio de 2017 fue encontrado muerto en su casa de Palos Verdes Estates, California; su muerte fue declarada suicidio por ahorcamiento. La revista Hit Parader colocó a Bennington en el puesto 46 de su lista de los "100 mejores vocalistas de metal de todos los tiempos". Bennington ha sido acreditado por varias publicaciones como uno de los mejores vocalistas de rock de su generación. Escribiendo para Billboard, Dan Weiss declaró que Bennington "convirtió el nu metal en universal"</p>
+				<p>Bennington luchó contra la depresión y el abuso de sustancias durante la mayor parte de su vida, desde su niñez. El 20 de julio de 2017 fue encontrado muerto en su casa de Palos Verdes Estates, California; su muerte fue declarada suicidio por ahorcamiento. La revista Hit Parader colocó a Bennington en el puesto 46 de su lista de los "100 mejores vocalistas de metal de todos los tiempos". Bennington ha sido acreditado por varias publicaciones como uno de los mejores vocalistas de rock de su generación. Escribiendo para Billboard, Dan Weiss declaró que Bennington "convirtió el nu metal en universal".</p>
+				<p>Poco tiempo luego de la muerte de Chester, la banda decidió crear un sitio web homenaje al mismo</p>
+				<p>Descansa en paz Chester Bennington (1976 - 2017).</p>	
+				<p class="videos"><iframe width="560" height="315" src="https://www.youtube.com/embed/t70Y2t0dD3Y?si=SwvAcQkPETRiW7HN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+				<p class="videos"><iframe width="560" height="315" src="https://www.youtube.com/embed/C66a9PsIu0s?si=cQsky71IiS_4Y9C7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+				<div class="d-grid gap-2 d-md-flex justify-content-center">
+				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://store.chesterbennington.com/" target="_blank">Chester Bennington 
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+  				<path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+  				<path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://youtube.com/@deadbysunrisetv?si=eLosrDI7ty0AuOoGdeadsaratheband" target="_blank">Dead by Sunrise 
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+  				<path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://open.spotify.com/intl-es/artist/502ZZTWlqgS1Ht62ewubEJ?autoplay=true" target="_blank">Dead by Sunrise 
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-spotify" viewBox="0 0 16 16">
+  				<path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://stonetemplepilots.com/" target="_blank">Stone Temple Pilots 
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+  				<path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+  				<path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+				</svg>
+				</a>
+  				</button>
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://www.greydazemusic.com/" target="_blank">Grey Daze 
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+  				<path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+  				<path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+				</svg>
+				</a>
+  				</button>
+				</div>
 				<h3>Mark Wakefield</h3>
+				<p class="banda-img"><img src="img/mark-wakefield.jpg" alt="Imágen de Mark Wakefield año 2016 aproximadamente"></p>
 				<p>Mark Wakefield (n. 31 de mayo de 1974) es el representante de la banda "Taproot", y el primer vocalista de la banda Linkin Park antes de que Chester Bennington se uniera a esta, cuando todavía se llamaban Xero. Conoció a Mike Shinoda en la secundaria y se unió a la banda, aún llamada SuperXero. Más adelante cambiaron el nombre a Xero y grabaron un EP de nombre homónimo que contenía las canciones, Fuse, Reading My Eyes, Stick N' Move y Rhinestone.</p>
 				<p>Abandonó tiempo después Xero para convertirse en mánager de la banda Taproot. Desde entonces ha registrado dos canciones, una titulada Ground Xero que fue grabada al poco tiempo de dejar Xero y la otra titulada Barack Your World en la que canta junto con Mike Shinoda (Bajo el pseudónimo de White Pegacorn) dando su apoyo al candidato Barack Obama en las elecciones de 2008. Barack Your World es, en realidad, una parodia con video incluido.</p>
 				<p>Es el autor de la portada del disco Toxicity, de la banda System of a Down.</p>
-				<p>Mantiene un bajo perfil, ha tenido miedo escénico y trabaja para Velvet Hammer una empresa que represeanta y administra bandas de alto nivel dentro del género como System Of A Down (SOAD), AFI, Deftones, etc.</p>
-				<h4>Sitio web oficial de Velvet Hammer</h4>
-				<p class="embebidos"><iframe src="https://velvethammer.net/"></iframe></p>
+				<p>Mantiene un bajo perfil, ha tenido miedo escénico y trabaja para Velvet Hammer, una empresa que represeanta y administra bandas de alto nivel dentro del género como System Of A Down (SOAD), Korn, etc. No posee redes sociales verificadas y la imágen mas actual es del 2016 aproximadamente.</p>
+				<div class="d-grid gap-2 d-md-flex justify-content-center">
+  				<button type="button" class="btn btn-secondary">
+  				<a class="nav-link active" aria-current="page" href="https://velvethammer.net/" target="_blank">Velvet Hammer 
+  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+  				<path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+  				<path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+				</svg>
+				</a>
+  				</button>
+				</div>	
 			</section>
 		</main>
 		<footer>
-			<a href="../complementarias/formulario.html" class="aFooter">Contacto</a>
-			<a href="../complementarias/contacto.html" class="aFooter">Desarrollado por</a>
+			<div class="card text-center">
+  			<div class="card-body">
+    		<p class="card-text">2002 - 2024 
+    		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-c-circle" viewBox="0 0 16 16">
+  			<path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.146 4.992c-1.212 0-1.927.92-1.927 2.502v1.06c0 1.571.703 2.462 1.927 2.462.979 0 1.641-.586 1.729-1.418h1.295v.093c-.1 1.448-1.354 2.467-3.03 2.467-2.091 0-3.269-1.336-3.269-3.603V7.482c0-2.261 1.201-3.638 3.27-3.638 1.681 0 2.935 1.054 3.029 2.572v.088H9.875c-.088-.879-.768-1.512-1.729-1.512"/>
+			</svg>
+			Linkin Park Argentina - Warner Music Argentina</p>
+    		<a href="../complementarias/formulario.html" class="btn btn-secondary">Contacto</a>
+    		<a href="../complementarias/contacto.html" class="btn btn-secondary">Desarrollado por</a>
+  			</div>
+			</div>
 		</footer>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="../js/intercambio.js"></script>
 </body>
 </html>

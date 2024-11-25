@@ -8,9 +8,58 @@
 	<link rel="stylesheet" type="text/css" href="../css/estilos.css">
 </head>
 <body>
-	<div id="contenedor">
+	<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+	 <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Luz
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Oscuro
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+	<div id="contenedor" class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
 		<header>
-			<nav class="navbar navbar-expand-lg bg-body-tertiary, navbar fixed-top bg-body-tertiary" data-bs-theme="dark">
+			<nav class="navbar navbar-expand-lg bg-body-tertiary, navbar fixed-top bg-body-tertiary, shadow-lg p-3 mb-5 bg-body-tertiary">
   				<div class="container-fluid">
   					<img src="../img/logo-actual.jpg" alt="Logo de la banda" width="30" height="30" class="d-inline-block align-text-top">
   					<img src="../img/bandera.png" alt="Bandera argentina" width="40" height="30" class="d-inline-block align-text-top">
@@ -50,46 +99,56 @@
 		<div id="relleno"></div>
 		<main>
 			<section>
-				<h2>Discos</h2>
-				<h3>HIbrid Theory (2000)</h3>
+				<h1>Discos</h1>
+				<h2>HIbrid Theory (2000)</h2>
 				<p class="banda-img"><img src="img/hybrid-theory.jpg" alt="Imágen del albúm Hybrid Theory"></p>
 				<p>Hybrid Theory, en español: "Teoría Híbrida", es el álbum debut de la banda estadounidense Linkin Park, publicado por la compañía discográfica Warner Bros. Records el 24 de octubre de 2000. El trabajo fue un éxito comercial: es el álbum de rock del siglo XXI con mayor cantidad de ventas y el segundo álbum debut más vendido de la historia después de Appetite for Destruction (1987) de Guns N' Roses. Además, alcanzó el segundo puesto en la lista Billboard 200, así como otras posiciones altas en otras listas del mundo. Grabado en los NRG Recording Studios en North Hollywood (California) y producido por Don Gilmore, sus letras se relacionan con los problemas que el cantante Chester Bennington experimentó durante su adolescencia, tales como el abuso de sustancias o el maltrato. Hybrid Theory debe su título al nombre anterior del grupo y, según la crítica, hace referencia a la mezcla «híbrida» de heavy metal y rap que caracteriza a su sonido.</p> 
 				<p>En agosto de 2020, se anunció la publicación de una reedición de Hybrid Theory con motivo de la celebración de su vigésimo aniversario. Al mismo tiempo, la banda publicó una canción inédita, "She Couldn't", como sencillo. La reedición se lanzó el 9 de octubre y consiste en una recopilación que incluye el álbum original, el álbum de remezclas "Reanimation", el EP Hybrid Theory y otros temas en vivo, maquetas y remezclas de los comienzos del grupo.</p>
-				<h3>Meteora (2003)</h3>
+				<h2>Meteora (2003)</h2>
 				<p class="banda-img"><img src="img/meteora.jpg" alt="Imágen del disco Meteora"></p>
 				<p>Es el segundo álbum del grupo Linkin Park, lanzado el 25 de marzo de 2003. El álbum ha vendido 13.300.000 de copias en todo el mundo, 6 millones solo en los EE.UU. Solo en su primera semana vendió un estimado de 810.000 copias.</p>
 				<p>Meteora es un disco cargado de una estética plenamente callejera, con grandes influencias del grafiti y con el estilo único que les caracteriza. El nombre del mismo estuvo inspirado en la región rocosa de Meteora en Grecia, donde están construidos numerosos monasterios encima de las piedras.</p>
 				<p>Este disco se diferenció por ser más melódico en general, alternando también con pequeñas influencias del rock/metal industrial y por la incorporación de nuevos instrumentos, como el uso de un shakuhachi (una flauta japonesa hecha de bambú) como se puede escuchar en la canción "Nobody's Listening", y demás efectos de sonido.</p>
 				<p>En febrero de 2023, se anunció que la banda lanzaría una edición del vigésimo aniversario de Meteora el 7 de abril de 2023. Junto a esto, lanzaron una demostración nunca antes lanzada titulada "Lost" como el sencillo principal de la reedición</p>
-				<h3>Minutes to Midnight (2007)</h3>
+				<h2>Minutes to Midnight (2007)</h2>
 				<p class="banda-img"><img src="img/minutes-to-midnight.jpg" alt="Imágen de del disco Minutes to Midnight"></p>
 				<p>Minutes to Midnight, en español: "Minutos para Media Noche", es el tercer álbum de estudio de la banda de rock estadounidense Linkin Park, lanzado el 14 de mayo de 2007 a través de Warner Bros. Records. El álbum fue producido por Mike Shinoda y Rick Rubin, y es el primer álbum de estudio de Linkin Park producido sin Don Gilmore, quien había producido los dos álbumes anteriores de la banda. Minutes to Midnight es el álbum de seguimiento de la banda de Meteora (2003) y presenta un cambio en la dirección musical del grupo. Para la banda, el álbum marcó el comienzo de una desviación de su característico sonido nu metal. Minutes to Midnight toma su título del símbolo del Reloj del Juicio Final. También es el primer álbum de larga duración de la banda en llevar la etiqueta Parental Advisory.</p>
-				<h3>A Thousand Suns (2010)</h3>
+				<h2>A Thousand Suns (2010)</h2>
 				<p class="banda-img"><img src="img/a-thousand-suns.jpg" alt="Imágen del disco A Thousand Suns"></p>
 				<p>A Thousand Suns, en español: "Mil Soles", es el cuarto álbum de estudio de la banda estadounidense Linkin Park, lanzado el 14 de septiembre de 2010 bajo el sello discográfico de Warner Bros. Records. La composición del álbum fue llevada a cabo por la banda, mientras que su producción estuvo a cargo del vocalista Mike Shinoda y de Rick Rubin, con quien el grupo había trabajado en su álbum de estudio anterior, Minutes to Midnight (2007). Las sesiones de grabación tuvieron lugar en los NRG Recording Studios en North Hollywood (Los Ángeles, California) desde 2008 hasta principios de 2010.</p>
 				<p>A Thousand Suns es un álbum conceptual que trata principalmente sobre el miedo a una guerra nuclear. La banda reconoció que, debido a la experimentación con sonidos nuevos y distintos, fue un cambio radical con respecto a sus trabajos anteriores. Shinoda afirmó en una entrevista de MTV que en su obra hacen referencia a numerosos problemas sociales como la «mezcla de ideas humanas con la tecnología» y los "temores [del hombre], el miedo de lo que va a ocurrir en el mundo". El título del álbum proviene de una cita del texto sagrado hinduista Bhagavad Gītā, recordada por Robert Oppenheimer tras la creación de la bomba atómica: "Si cientos de miles de soles aparecieran en el cielo al mismo tiempo, su brillo podría semejarse al de la refulgencia de la Persona Suprema en esa forma universal"</p>
-				<h3>Living Things (2012)</h3>
+				<h2>Living Things (2012)</h2>
 				<p class="banda-img"><img src="img/living-things.jpg" alt="Imágen del disco Living Things"></p>
 				<p>Living Things, en español: "Cosas vivientes", es el quinto álbum de estudio de la banda estadounidense de Rock Linkin Park. El álbum fue lanzado el 26 de junio de 2012 por el sello discográfico Warner Bros. Records. La producción estuvo a cargo del vocalista Mike Shinoda y Rick Rubin, quien coprodujo los dos álbumes anteriores de la banda, Minutes to Midnight y A Thousand Suns. Antes del lanzamiento del álbum, la banda declaró que el nuevo material contaría con una nueva dirección en su música, combinando los elementos rap rock de su álbum debut, Hybrid Theory, y las mezclas electrónicas de A Thousand Suns, manteniendo al mismo tiempo un sonido original. Este es el cuarto álbum de Linkin Park en debutar en la posición número uno en los Estados Unidos. Los otros tres grupos a llevar a cabo esta hazaña son la banda de metal Metallica, Dave Matthews Band y Disturbed.</p>
-				<h3>Tha Hunting Party (2014)</h3>
+				<h2>Tha Hunting Party (2014)</h2>
 				<p class="banda-img"><img src="img/the-hunting-party.jpg" alt="Imágen de Emily Amstrong año 2024"></p>
 				<p>The Hunting Party, en español: "La partida de caza", es el sexto álbum de estudio de la banda estadounidense de rock Linkin Park. Producido por los miembros de la banda Mike Shinoda y Brad Delson, se publicó mediante Warner Bros. Records el 13 de junio de 2014 en Alemania, Austria y Suiza, y el 17 de junio en América del Norte. Es su primer trabajo discográfico no grabado en NRG Recording Studios y el primero desde Minutes to Midnight que no es producido por Rick Rubin.</p>
 				<p>The Hunting Party es solo una aproximación básica al sonido de la banda en sus primeros discos, Hybrid Theory y Meteora, dejando completamente de lado el rock electrónico que caracterizó a sus dos trabajos más recientes, dirigiendo su nuevo álbum hacia un rock más puro. Descrito por Mike Shinoda simplemente como «un disco de rock», sirve como una declaración en contra de grupos contemporáneos de rock mainstream y comercial a los que Shinoda acusó de «intentar ser como otras bandas y evitar riesgos». El álbum tomó un año de grabación y producción, con el material siendo escrito de manera improvisada en el estudio por los miembros de la banda. Además, cuenta con la colaboración de cuatro artistas: Page Hamilton, Rakim, Daron Malakian y Tom Morello, lo que lo convierte en el primer álbum de estudio de Linkin Park con músicos invitados. Este es el penúltimo álbum de Chester Bennington como parte de Linkin Park, fallecido el 20 de julio de 2017.</p>
-				<h3>One More Light (2017)</h3>
+				<h2>One More Light (2017)</h2>
 				<p class="banda-img"><img src="img/one-more-light.jpg" alt="Imágen de Emily Amstrong año 2024"></p>
 				<p>One More Light, en español: "Una luz más", es el séptimo álbum de estudio de la banda estadounidense de rock Linkin Park. Se publicó el 19 de mayo de 2017 a través de Warner Bros. Records y Machine Shop Records, siguiendo a su publicación de 2014, The Hunting Party. Es el primer álbum con un tema que le da su nombre y la banda lo eligió al considerar que representa el corazón del disco. El primer sencillo, "Heavy", fue publicado el 16 de febrero.</p>
 				<p>One More Light es el último álbum de la banda con Chester Bennington como vocalista principal antes de que falleciera el 20 de julio de 2017, también es el último album con Rob Bourdon como baterista.</p>
 				<p>El álbum presenta a Pusha T, Stormzy y Kiiara como cantantes invitados, y el proceso de producción y composición contó con las colaboraciones de Julia Michaels, Ilsey Juber,Justin Tranter, Ross Golan, Andrew Goldstein, blackbear y Eg White.</p>
-				<h3>From Zero (2024)</h3>
+				<h2>From Zero (2024)</h2>
 				<p class="banda-img"><img src="../img/disco-actual.jpg" alt="Imágen de Emily Amstrong año 2024"></p>
 				<p>From Zero, en español: "Desde cero", es el próximo octavo álbum de estudio de la banda Linkin Park, será lanzado el 15 de noviembre de 2024 a través de Warner Records y Machine Shop. Será el primer álbum de estudio de Linkin Park desde One More Light (2017), y el primero en el que participarán la nueva cantante Emily Armstrong de "Dead Sara", así como el nuevo baterista de la banda, Colin Brittain. Es el primer álbum de la banda en el que no cuentan con el vocalista Chester Bennington debido a su muerte en 2017, así como el baterista y miembro fundador Rob Bourdon debido a su renuncia a la banda.</p>	
 			</section>
 		</main>
 		<footer>
-			<a href="../complementarias/formulario.html" class="aFooter">Contacto</a>
-			<a href="../complementarias/contacto.html" class="aFooter">Desarrollado por</a>
+			<div class="card text-center">
+  			<div class="card-body">
+    		<p class="card-text">2002 - 2024 
+    		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-c-circle" viewBox="0 0 16 16">
+  			<path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.146 4.992c-1.212 0-1.927.92-1.927 2.502v1.06c0 1.571.703 2.462 1.927 2.462.979 0 1.641-.586 1.729-1.418h1.295v.093c-.1 1.448-1.354 2.467-3.03 2.467-2.091 0-3.269-1.336-3.269-3.603V7.482c0-2.261 1.201-3.638 3.27-3.638 1.681 0 2.935 1.054 3.029 2.572v.088H9.875c-.088-.879-.768-1.512-1.729-1.512"/>
+			</svg>
+			Linkin Park Argentina - Warner Music Argentina</p>
+    		<a href="../complementarias/formulario.html" class="btn btn-secondary">Contacto</a>
+    		<a href="../complementarias/contacto.html" class="btn btn-secondary">Desarrollado por</a>
+  			</div>
+			</div>
 		</footer>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="../js/intercambio.js"></script>
 </body>
 </html>
